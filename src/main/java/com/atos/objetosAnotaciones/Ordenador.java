@@ -1,11 +1,18 @@
 package com.atos.objetosAnotaciones;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.atos.config.Config;
+
 @Component
 @Scope("prototype")
+
 public class Ordenador {
+
+	@Autowired
+	Config config;
 
 	private String teclado;
 
@@ -19,6 +26,7 @@ public class Ordenador {
 
 	public void setTeclado(String teclado) {
 		this.teclado = teclado;
+
 	}
 
 	public String getTrackpad() {
@@ -42,10 +50,14 @@ public class Ordenador {
 		this.teclado = teclado;
 		this.trackpad = trackpad;
 		this.pantalla = pantalla;
+
 	}
 
 	@Override
 	public String toString() {
+		System.out
+				.println("Este método es llamado porque tenemos inyectado un metodo-bean en el toString de Ordenador");
+		config.metodoRandom();
 		return "Ordenador [teclado=" + teclado + ", trackpad=" + trackpad + ", pantalla=" + pantalla + "]";
 	}
 

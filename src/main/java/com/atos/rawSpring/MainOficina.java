@@ -20,6 +20,7 @@ import com.atos.objetosXML.Impresora;
 public class MainOficina {
 
 	public static void main(String[] args) {
+
 		// TODO Auto-generated method stub
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
 
